@@ -1,0 +1,50 @@
+Manifest-Version: 1.0
+Class-Path: lib/spring-core-3.2.1.RELEASE.jar lib/commons-logging-1.1.
+ 1.jar lib/spring-web-3.2.1.RELEASE.jar lib/spring-aop-3.2.1.RELEASE.j
+ ar lib/spring-context-3.2.1.RELEASE.jar lib/spring-beans-3.2.1.RELEAS
+ E.jar lib/aopalliance-1.0.jar lib/jstl-1.2.jar lib/spring-webmvc-3.2.
+ 1.RELEASE.jar lib/spring-expression-3.2.1.RELEASE.jar lib/spring-secu
+ rity-taglibs-3.2.3.RELEASE.jar lib/spring-security-web-3.2.3.RELEASE.
+ jar lib/spring-security-cas-3.2.3.RELEASE.jar lib/cas-client-core-3.2
+ .1.jar lib/spring-security-acl-3.2.3.RELEASE.jar lib/spring-jdbc-3.2.
+ 1.RELEASE.jar lib/spring-tx-3.2.1.RELEASE.jar lib/spring-security-con
+ fig-3.2.3.RELEASE.jar lib/spring-security-core-3.2.3.RELEASE.jar lib/
+ opserv-tenant-common-3.0.jar lib/opserv-core-3.0.jar lib/spring-aspec
+ ts-3.2.1.RELEASE.jar lib/aspectjweaver-1.8.1.jar lib/spring-context-s
+ upport-3.2.1.RELEASE.jar lib/spring-orm-3.2.1.RELEASE.jar lib/jboss-e
+ l-2.0.1.GA.jar lib/el-api-1.0.jar lib/javax.el-api-3.0.0.jar lib/vali
+ dation-api-1.0.0.GA.jar lib/hibernate-entitymanager-4.1.0.Final.jar l
+ ib/hibernate-envers-4.1.0.Final.jar lib/hibernate-validator-4.3.1.Fin
+ al.jar lib/hibernate-jpa-2.0-api-1.0.0.Final.jar lib/log4j-jcl-2.1.ja
+ r lib/log4j-api-2.1.jar lib/opserv-tenant-service-3.0.jar lib/c3p0-0.
+ 9.5.jar lib/mchange-commons-java-0.2.9.jar lib/transactions-jta-3.8.0
+ .jar lib/transactions-3.8.0.jar lib/transactions-api-3.8.0.jar lib/at
+ omikos-util-3.8.0.jar lib/mockito-all-1.9.0.jar lib/transactions-jdbc
+ -3.8.0.jar lib/transactions-hibernate3-3.8.0.jar lib/opserv-tenant-co
+ nfig-3.0.jar lib/peg-web-1.0.jar lib/peg-log4j2-1.0.jar lib/slf4j-api
+ -1.7.5.jar lib/log4j-slf4j-impl-2.2.jar lib/log4j-core-2.2.jar lib/lo
+ g4j-web-2.0.2.jar lib/commons-codec-1.3.jar lib/jackson-mapper-asl-1.
+ 9.13.jar lib/jackson-core-asl-1.9.13.jar lib/json-20140107.jar lib/op
+ serv-sp-service-impl-3.0.jar lib/opserv-sp-core-3.0.jar lib/opserv-da
+ o-3.0.jar lib/opserv-sp-common-3.0.jar lib/junit-4.11.jar lib/hamcres
+ t-core-1.3.jar lib/httpclient-4.3.6.jar lib/httpcore-4.3.3.jar lib/my
+ sql-connector-java-5.1.26.jar lib/commons-lang-2.6.jar lib/commons-va
+ lidator-1.4.0.jar lib/commons-beanutils-1.8.0.jar lib/commons-digeste
+ r-1.8.jar lib/jasypt-1.9.2.jar lib/jasypt-hibernate4-1.9.2.jar lib/mv
+ el2-2.1.7.Final.jar lib/commons-math3-3.3.jar lib/commons-dbcp-1.2.2.
+ jar lib/commons-pool-1.3.jar lib/opserv-sp-service-3.0.jar lib/opserv
+ -sp-common-service-3.0.jar lib/opserv-messaging-3.0.jar lib/spring-jm
+ s-3.2.1.RELEASE.jar lib/jms-api-1.1-rev-1.jar lib/activemq-all-5.10.0
+ .jar lib/spring-test-3.2.1.RELEASE.jar lib/poi-3.9.jar lib/poi-ooxml-
+ 3.9.jar lib/poi-ooxml-schemas-3.9.jar lib/xmlbeans-2.3.0.jar lib/stax
+ -api-1.0.1.jar lib/dom4j-1.6.1.jar lib/xml-apis-1.0.b2.jar lib/peg-nc
+ -client-2.0.jar lib/peg-nc-core-2.0.jar lib/hibernate-ehcache-4.1.0.F
+ inal.jar lib/ehcache-core-2.4.3.jar lib/jboss-logging-3.1.0.CR2.jar l
+ ib/hibernate-core-4.1.0.Final.jar lib/commons-collections-3.2.1.jar l
+ ib/antlr-2.7.7.jar lib/jboss-transaction-api_1.1_spec-1.0.0.Final.jar
+  lib/javassist-3.15.0-GA.jar lib/hibernate-commons-annotations-4.0.1.
+ Final.jar
+Build-Jdk: 1.6.0
+Built-By: 399536
+Created-By: Maven Integration for Eclipse
+

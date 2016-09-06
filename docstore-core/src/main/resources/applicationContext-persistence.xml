@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:cache="http://www.springframework.org/schema/cache"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+				   			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd  
+							http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd 
+							http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd 
+							http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
+
+	<context:component-scan base-package="com.docstore.*" />
+	<context:property-placeholder location="file:///${docstore.config.file}"
+		ignore-unresolvable="true" />
+
+	<tx:annotation-driven proxy-target-class="true"
+		transaction-manager="transactionManager" />
+
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="emfForDOCSTOREDB" />
+	</bean>
+	<context:annotation-config />
+
+
+	<bean id="genericDAO" class="com.docstore.core.dao.GenericDAOImpl"
+		depends-on="emfForDOCSTOREDB">
+		<property name="entityManagerFactory" ref="emfForDOCSTOREDB" />
+	</bean>
+
+	<!--EntityManagerFactory Configuration for APPDB starts -->
+	<bean id="emfForDOCSTOREDB"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="persistenceUnitName" value="DOCSTOREPU" />
+		<property name="persistenceXmlLocation" value="classpath:META-INF/persistence.xml" />
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+				<property name="databasePlatform" value="org.hibernate.dialect.MySQLDialect" />
+				<property name="showSql" value="true" />
+				<property name="generateDdl" value="false" />
+			</bean>
+		</property>
+		<property name="jpaProperties">
+			<props>
+				<prop key="hibernate.connection.charSet">utf8</prop>
+				<prop key="hibernate.connection.characterEncoding">utf8</prop>
+				<prop key="hibernate.connection.useUnicode">true</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName">
+			<value>${docstore.db.driverClassName}</value>
+		</property>
+		<property name="url">
+			<value>${docstore.db.url}</value>
+		</property>
+		<property name="username">
+			<value>${docstore.db.user}</value>
+		</property>
+		<property name="password">
+			<value>${docstore.db.password}</value>
+		</property>
+	</bean>
+
+	<!-- <bean id="stringEncryptor" class="org.jasypt.encryption.pbe.StandardPBEStringEncryptor" 
+		lazy-init="false"> <property name="algorithm" value="PBEWithMD5AndDES" /> 
+		<property name="password" value="password" /> </bean> <bean id="hibernateStringEncryptor" 
+		class="org.jasypt.hibernate4.encryptor.HibernatePBEStringEncryptor"> <property 
+		name="registeredName" value="hibernateStringEncryptor" /> <property name="encryptor" 
+		ref="stringEncryptor" /> </bean> -->
+
+	<!-- <bean id="gisDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+		<property name="driverClassName"> <value>${opserv.sp.db.driverClassName}</value> 
+		</property> <property name="url"> <value>${opserv.gis.db.url}</value> </property> 
+		<property name="username"> <value>${opserv.gis.db.username}</value> </property> 
+		<property name="password"> <value>${opserv.gis.db.password}</value> </property> 
+		</bean> <bean id="emfForGisDB" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"> 
+		<property name="dataSource" ref="gisDataSource" /> <property name="persistenceUnitName" 
+		value="GisPU" /> <property name="persistenceXmlLocation" value="classpath:META-INF/persistence-test.xml" 
+		/> <property name="jpaVendorAdapter"> <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"> 
+		<property name="databasePlatform" value="org.hibernate.dialect.MySQLDialect" 
+		/> <property name="showSql" value="true" /> <property name="generateDdl" 
+		value="false" /> </bean> </property> <property name="jpaProperties"> <props> 
+		<prop key="hibernate.connection.charSet">utf8</prop> <prop key="hibernate.connection.characterEncoding">utf8</prop> 
+		<prop key="hibernate.connection.useUnicode">true</prop> </props> </property> 
+		</bean> <bean id="gisDAO" class="com.cognizant.opserv.sp.core.dao.GisDAOImpl"> 
+		<property name="entityManagerFactory" ref="emfForGisDB" /> </bean> -->
+
+
+</beans>

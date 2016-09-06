@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0">
+
+  <persistence-unit name="DOCSTOREPU"
+		transaction-type="JTA">
+    <!-- <provider>org.hibernate.ejb.HibernatePersistence</provider> -->
+    <!-- <jta-data-source>java:/JPaaSDS</jta-data-source> -->
+
+    <class>com.docstore.core.entity.TUsr</class>
+
+    <shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
+    <properties>
+      <!-- Transaction integration -->
+      <property name="hibernate.transaction.manager_lookup_class"
+				value="org.hibernate.transaction.JBossTransactionManagerLookup" />
+      <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
+      <property name="hibernate.show_sql" value="true" />
+      <!-- <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" 
+				/> <property name="hibernate.connection.username" value="testadmin" /> <property 
+				name="hibernate.connection.datasource" value="java:/JPaaSDS" /> -->
+      <property name="hibernate.validator.apply_to_ddl" value="false" />
+      <property name="hibernate.validator.autoregister_listeners"
+				value="false" />
+
+
+      <!-- Starting of properties for Query and Second level cache -->
+
+      <!-- <property name="hibernate.cache.use_second_level_cache"
+				value="true" />
+			<property name="hibernate.cache.use_query_cache" value="true" />
+			<property name="hibernate.generate_statistics" value="true" />
+			<property name="hibernate.cache.region.factory_class"
+				value="org.hibernate.cache.ehcache.EhCacheRegionFactory" />
+			<property name="net.sf.ehcache.configurationResourceName"
+				value="/ehcache.xml" /> -->
+      <!-- End of properties for Query and Second level cache -->
+      
+      <!-- Start Audit -->
+      <!-- <property name="org.hibernate.envers.audit_table_suffix"
+				value="_hist" />
+      <property name="org.hibernate.envers.revision_field_name"
+				value="rev_id" />
+      <property name="org.hibernate.envers.revision_type_field_name"
+				value="rev_type" /> -->
+      <!-- End Audit -->
+      
+      <property name="hibernate.connection.release_mode" value="on_close" />
+    </properties>
+
+  </persistence-unit>
+
+</persistence>

@@ -250,7 +250,7 @@ public interface GenericDAO {
 	 * 
 	 * @return the number of updated entity objects
 	 */
-	int executeNativeQuery(final String query);
+//	int executeNativeQuery(final String query);
 
 	/**
 	 * Retrieve entities based on given search criteria using native sql query.
@@ -373,6 +373,6 @@ public interface GenericDAO {
 	 * @param queryParams the query params
 	 * @return the int
 	 */
-	public int executeNativeQueryMultiCondition(final String query,final List<Object> queryParams);
+//	public int executeNativeQueryMultiCondition(final String query,final List<Object> queryParams);
 	
 }

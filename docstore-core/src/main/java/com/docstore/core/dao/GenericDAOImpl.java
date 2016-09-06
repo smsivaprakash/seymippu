@@ -26,6 +26,7 @@ import org.hibernate.type.BigIntegerType;
 import org.springframework.orm.jpa.JpaCallback;
 import org.springframework.orm.jpa.support.JpaDaoSupport;
 import org.springframework.util.StringUtils;
+import com.docstore.core.dao.GenericDAO;
 
 /**
  * Class provides API implementation for GenericDAO.
@@ -77,7 +78,7 @@ public class GenericDAOImpl extends JpaDaoSupport implements GenericDAO {
 		 * System.out.println("=========== Update ===========");
 		 * System.out.println("Udate Entity : " + entity);
 		 */
-		List<T> entityLS = new ArrayList<>();
+		List<T> entityLS = new ArrayList<T>();
 		entityLS.add(entity);
 
 		return update(entityLS).get(0);
@@ -278,17 +279,17 @@ public class GenericDAOImpl extends JpaDaoSupport implements GenericDAO {
 	 * 
 	 * @return the number of updated entity objects
 	 */
-	@Override
-	public int executeNativeQuery(final String query) {
-		return (int) getJpaTemplate().execute(new JpaCallback() {
-			public Object doInJpa(final EntityManager entityMgr)
-					throws PersistenceException {
-				// System.out.println("=========== findEntities ===========");
-				final Query queryJPQL = entityMgr.createNativeQuery(query);
-				return queryJPQL.executeUpdate();
-			}
-		});
-	}
+//	@Override
+//	public int executeNativeQuery(final String query) {
+//		return (int) getJpaTemplate().execute(new JpaCallback() {
+//			public Object doInJpa(final EntityManager entityMgr)
+//					throws PersistenceException {
+//				// System.out.println("=========== findEntities ===========");
+//				final Query queryJPQL = entityMgr.createNativeQuery(query);
+//				return queryJPQL.executeUpdate();
+//			}
+//		});
+//	}
 
 	/**
 	 * Remove an entity object from the persistent unit
@@ -514,7 +515,7 @@ public class GenericDAOImpl extends JpaDaoSupport implements GenericDAO {
 		 * System.out.println("queryName : " + queryName + "queryParam : " +
 		 * queryParam);
 		 */
-		List<Object> queryParamLS = new ArrayList<>();
+		List<Object> queryParamLS = new ArrayList<Object>();
 		queryParamLS.add(queryParam);
 		return countEntitiesByNamedQueryMultiCond(queryName, queryParamLS, -1,
 				-1);
@@ -1079,24 +1080,24 @@ public class GenericDAOImpl extends JpaDaoSupport implements GenericDAO {
 		getJpaTemplate().flush();
 	}
 
-	public int executeNativeQueryMultiCondition(final String query,final List<Object> queryParams) {
-		return (int) getJpaTemplate().execute(new JpaCallback() {
-			public Object doInJpa(final EntityManager entityMgr)
-					throws PersistenceException {
-				// System.out.println("=========== findEntities ===========");
-				final Query queryJPQL = entityMgr.createNativeQuery(query);
-				if (queryParams != null && queryParams.size() > 0) {
-					Iterator itr = queryParams.iterator();
-					int paramCounter = 1;
-					while (itr.hasNext()) {
-						queryJPQL.setParameter(paramCounter, itr.next());
-						paramCounter++;
-					}
-				}
-				return queryJPQL.executeUpdate();
-			}
-		});
-	}
+//	public int executeNativeQueryMultiCondition(final String query,final List<Object> queryParams) {
+//		return (int) getJpaTemplate().execute(new JpaCallback() {
+//			public Object doInJpa(final EntityManager entityMgr)
+//					throws PersistenceException {
+//				// System.out.println("=========== findEntities ===========");
+//				final Query queryJPQL = entityMgr.createNativeQuery(query);
+//				if (queryParams != null && queryParams.size() > 0) {
+//					Iterator itr = queryParams.iterator();
+//					int paramCounter = 1;
+//					while (itr.hasNext()) {
+//						queryJPQL.setParameter(paramCounter, itr.next());
+//						paramCounter++;
+//					}
+//				}
+//				return queryJPQL.executeUpdate();
+//			}
+//		});
+//	}
 
 
 }
